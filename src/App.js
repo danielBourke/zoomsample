@@ -64,7 +64,7 @@ function App() {
      generateSignitures()
   }, []);
 
-  return <div className="App">Zoom Testing</div>;
+  return <div className="App">Zoom </div>;
 }
 
 export default App;
