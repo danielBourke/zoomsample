@@ -7,14 +7,16 @@ let apiKeys = {
 };
 let meetConfig = {
   apiKey: apiKeys.apiKey,
-  meetingNumber: "71289544336",
-  userName: "Example",
-  userEmail: "example@example.com", // must be the attendee email address
-  passWord: "0hZeCd",
+  meetingNumber: "97704764972",
+  userName: "daniel",
+  userEmail: "daniel.bourke5000@gmail.com", // must be the attendee email address
+  passWord: "5APBfU",
   role: 0,
-};
+}; 
 
 function App() {
+
+  console.log(apiKeys.apiKey)
   function joinMeeting(signature, meetConfig) {
     ZoomMtg.init({
       leaveUrl: "https://zoom.us/",
@@ -32,7 +34,7 @@ function App() {
             console.log(success);
           },
 
-          error: (error) => {
+          error: (error) => { 
             console.log(error);
           },
         });
@@ -40,7 +42,7 @@ function App() {
     });
   }
   useEffect(() => {
-    ZoomMtg.setZoomJSLib("https://source.zoom.us/1.7.10/lib", "/av");
+    ZoomMtg.setZoomJSLib("https://jssdk.zoomus.cn/1.8.0/lib", "/av");
     ZoomMtg.preLoadWasm();
     ZoomMtg.prepareJssdk();
 
