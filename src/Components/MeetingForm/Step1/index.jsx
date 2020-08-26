@@ -46,27 +46,36 @@ const Step1 = ({
   handleSetStepOne,
   onTitleChange,
   title,
-  startDate,
-  onchangeStartDate,
-  endDate,
+  onSubtitleChange,
   handleDateChangeEnd,
-  onchangeEndDate,
   handleDateChange,
   selectedDate,
-  selectedDateEnd
+  selectedDateEnd,
+  subHeading
 }) => {
   const classes = useStyles();
   return (
     <div>
     <form className={classes.root}>
       <Typography variant="h4" gutterBottom>
-        Name your event
+        Title
       </Typography>
       <TextField
         id="outlined-helperText"
         label="name your event"
         value={title}
         onChange={onTitleChange}
+        variant="outlined"
+        fullWidth
+      />
+            <Typography variant="h4" style={{marginTop: 20}} gutterBottom>
+        Subheading
+      </Typography>
+      <TextField
+        id="outlined-helperText"
+        label="name your event"
+        value={subHeading}
+        onChange={onSubtitleChange}
         variant="outlined"
         fullWidth
       />
@@ -103,7 +112,7 @@ const Step1 = ({
           marginTop: "auto",
         }}
       >
-        <Button variant="outlined" disabled={title===""} onClick={() => handleSetStepOne()}>
+        <Button style={{marginTop: 20}} variant="outlined" disabled={title===""} onClick={() => handleSetStepOne()}>
          <Typography style={{margin: 10}}>
          next
            </Typography> 

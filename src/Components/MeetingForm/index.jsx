@@ -6,8 +6,13 @@ import Step3 from "./step3";
 import Step4 from "./step4";
 import Step5 from "./step5";
 import ProgressBar from "../ProgressBar";
+import { useDispatch } from "react-redux";
+import { ADD_EVENT } from "../../app/constants";
 const EventForm = () => {
-  const [steps, setStep] = useState(5);
+  const dispatch = useDispatch()
+  const [title, setTitle]= useState("")
+  const [subHeading, setSubHeading]= useState("")
+  const [steps, setStep] = useState(1);
   const [selectedDate, handleDateChange] = useState(new Date());
   const [selectedDateEnd, handleDateChangeEnd] = useState(new Date());
   const [MeetingID, setMeetingID] = useState("");
@@ -18,6 +23,12 @@ const EventForm = () => {
   const handleChangePasscode = (e) => {
     setPasscode(e.target.value);
   };
+  const onTitleChange = (event) =>{
+    setTitle(event.target.value)
+  }
+  const onSubtitleChange = (event) =>{
+    setSubHeading(event.target.value)
+  }
   const content = () => {
     const handleSetStepOne = () => {
       setStep(2);
@@ -32,12 +43,29 @@ const EventForm = () => {
     const handleSetFour = () => {
       setStep(5);
     };
+
+    const createLiveEvent = () => {
+      const event = {
+          id: MeetingID.replace(/\s/g, ''),
+          passcode: Passcode,
+          heading: title,
+          subHeading: subHeading
+
+      }
+      setStep(6)
+      dispatch({type: ADD_EVENT, payload: event})
+
+    }
     switch (steps) {
       case 1:
         return (
           <>
             {" "}
             <Step1
+            subHeading={subHeading}
+            onSubtitleChange={onSubtitleChange}
+            title={title}
+            onTitleChange={onTitleChange}
               selectedDate={selectedDate}
               handleDateChange={handleDateChange}
               handleSetStepOne={handleSetStepOne}
@@ -63,7 +91,7 @@ const EventForm = () => {
       case 4:
         return <Step4 handleSetFour={handleSetFour} />;
       case 5:
-        return <Step5 />;
+        return <Step5 createLiveEvent={createLiveEvent} />;
 
       default:
         return null;

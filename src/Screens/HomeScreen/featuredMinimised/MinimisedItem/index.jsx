@@ -10,13 +10,15 @@ const useStyles = makeStyles((theme) => ({
       },
       [theme.breakpoints.up("md")]: {
         maxWidth: 250,
+        minWidth: 250,
         height: 150,
         marginTop: 20
       },
       [theme.breakpoints.up("lg")]: {
         maxWidth: 250,
         height: 150,
-        marginTop: 20
+        marginTop: 20,
+        minWidth: 250,
       },
     },
     image: {
@@ -58,7 +60,7 @@ const MinimisedItem = ({event}) => {
       
         />
         <div style={{display: "flex" , flexDirection: "row"}}>
-        <IosRadioOutline color="red" beat={true} /> <h4 style={{color: "red"}}>Live  </h4>
+        <IosRadioOutline color="red" beat={true} /> <h4 style={{color: "red", marginTop: "auto", marginBottom: "auto"}}>Live  </h4>
         </div>
         <h4>{event.heading}</h4>
             <h6>{event.subHeading}</h6>

@@ -4,7 +4,7 @@ import { Dropzone } from "./DropZoneInput";
 import { useHistory } from "react-router-dom";
 import { Button } from "@material-ui/core";
 
-const Step5 = () => {
+const Step5 = ({createLiveEvent}) => {
     const [files, setFiles] = useState([]);
     const [cropResult, setCropResult] = useState("");
     const [image, setImage] = useState(null);
@@ -26,13 +26,13 @@ const Step5 = () => {
         try {
           
         //  dispatch(uploadProfileImage(image, cognitoId));
-      
+        createLiveEvent()
         history.push("/")
           handleCancelCrop();
         } catch (error) {
           console.log(error);
         }
-      }, [  history]);
+      }, [  history, createLiveEvent]);
     
       console.log(image)
 
