@@ -96,7 +96,7 @@ function CompletedEventBody() {
             boxShadow: "0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)",
           }}
           title="title"
-          src="https://www.youtube.com/embed/xegAFhfIbHU"
+          src="https://www.youtube.com/embed/9tDWP0HT4zY"
           frameBorder="0"
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen={true}
