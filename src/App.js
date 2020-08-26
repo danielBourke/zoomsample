@@ -1,9 +1,10 @@
 import React, { lazy, Suspense } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import DashboardLayout from "./Layout/Dashboard";
-
+import { MuiPickersUtilsProvider } from '@material-ui/pickers';
+import DateFnsUtils from '@date-io/date-fns';
 function App() {
   return (
+    <MuiPickersUtilsProvider utils={DateFnsUtils}>
     <BrowserRouter>
       <Suspense fallback="">
         <Switch>
@@ -11,6 +12,16 @@ function App() {
             exact
             path="/"
             component={lazy(() => import("./Screens/HomeScreen"))}
+          />
+             <Route
+            exact
+            path="/eventform"
+            component={lazy(() => import("./Screens/CreateEventForm"))}
+          />
+             <Route
+            exact
+            path="/pastmeeting/:id"
+            component={lazy(() => import("./Screens/CompletedEventScreen"))}
           />
           <Route
             exact
@@ -20,6 +31,7 @@ function App() {
         </Switch>
       </Suspense>
     </BrowserRouter>
+    </MuiPickersUtilsProvider>
   );
 }
 

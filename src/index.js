@@ -6,13 +6,14 @@ import * as serviceWorker from "./serviceWorker";
 import "lodash";
 import { Provider } from "react-redux";
 import { configureStore } from "./app/store";
-const store = configureStore();
+import { PersistGate } from "redux-persist/integration/react";
+const { store, persistor } = configureStore();
 ReactDOM.render(
-
-    <Provider store={store}>
+  <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
       <App />
-    </Provider>
-,
+    </PersistGate>
+  </Provider>,
   document.getElementById("root")
 );
 

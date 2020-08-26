@@ -1,0 +1,19 @@
+.progress {
+    background-color: rgb(243, 243, 243);
+    width: 100vw;
+    height: 3px;
+   
+    margin-bottom: 40px;
+  }
+  
+  .progress-bar { float: left; }
+  
+  .progress-bar.orange {
+    background-color: rgb(98, 144, 140);
+    height: 100%;
+  }
+  
+  .progress-bar.blue {
+    background-color: rgb(98, 144, 133);
+    height: 100%;
+  }

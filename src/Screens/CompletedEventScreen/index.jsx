@@ -1,52 +1,50 @@
-import React, { useRef } from "react";
-import FeaturedStory from "./featuredStory";
+import React, { useEffect, useRef } from "react";
 import { makeStyles } from "@material-ui/core";
-import FeaturedMinimised from "./featuredMinimised";
-import DashboardLayout from "../../Layout/Dashboard";
 import Page from "../../Components/Page";
+import CompletedEventBody from "./CompletedEventBody";
+import DashboardLayout from "../../Layout/Dashboard";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     [theme.breakpoints.down("sm")]: {
       backgroundColor: theme.palette.background.dark,
-
+      height: "95vh",
       display: "flex",
-      maxWidth: "100vw",
-      flexDirection: "column",
+      overflow: "hidden",
+      position: "relative",
     },
     [theme.breakpoints.up("md")]: {
       backgroundColor: theme.palette.background.dark,
-      marginTop: 50,
-      flexDirection: "column",
+      height: "95vh",
       display: "flex",
-      maxWidth: "85vw",
-      marginLeft: "auto",
-      marginRight: "auto",
+      overflow: "hidden",
+      position: "relative",
     },
     [theme.breakpoints.up("lg")]: {
       backgroundColor: theme.palette.background.dark,
-
-      flexDirection: "column",
+      height: "95vh",
       display: "flex",
-
+      overflow: "hidden",
+      position: "relative",
       maxWidth: "45vw",
       marginLeft: "auto",
       marginRight: "auto",
     },
   },
 }));
-const HomeMeeting = () => {
+
+function CompletedDiscussionScreen() {
   const classes = useStyles();
   const pageRef = useRef(null);
+  useEffect(() => {}, []);
 
   return (
     <DashboardLayout>
-      <Page className={classes.root} title="events" ref={pageRef}>
-        <FeaturedStory />
-        <FeaturedMinimised />
+      <Page className={classes.root} title="discussion" ref={pageRef}>
+        <CompletedEventBody />
       </Page>
     </DashboardLayout>
   );
-};
+}
 
-export default HomeMeeting;
+export default CompletedDiscussionScreen;
