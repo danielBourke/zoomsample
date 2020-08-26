@@ -7,18 +7,16 @@ function App() {
     <BrowserRouter>
       <Suspense fallback="">
         <Switch>
-          <DashboardLayout>
-          <Route exact
-           path="/"
-           component={lazy(() => import("./Screens/HomeScreen"))}
-            />
-</DashboardLayout>
+          <Route
+            exact
+            path="/"
+            component={lazy(() => import("./Screens/HomeScreen"))}
+          />
           <Route
             exact
             path="/meeting/:id/:passcode"
             component={lazy(() => import("./Screens/Zoom"))}
           />
-
         </Switch>
       </Suspense>
     </BrowserRouter>

@@ -1,11 +1,15 @@
-import React from "react"
+import React from "react";
+import Page from "../../Components/Page";
+import DashboardLayout from "../../Layout/Dashboard";
 
 const HomeMeeting = () => {
-    return(
-        <>
-<h1>Home view</h1>
-        </>
-    )
-}
+  return (
+    <DashboardLayout>
+      <Page>
+        <h1>Home view</h1>
+      </Page>
+    </DashboardLayout>
+  );
+};
 
-export default HomeMeeting
+export default HomeMeeting;
